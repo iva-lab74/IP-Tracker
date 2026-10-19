@@ -5,7 +5,7 @@ const input = document.getElementById("search-input");
 const map = L.map("map", { zoomControl: false }).setView([0, 0], 2);
 
 //original view
-L.titleLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: "&copy; OpenStreetMap contributors",
 }).addTo(map);
 
@@ -17,7 +17,7 @@ const pin = L.icon({
     iconanchor: [23, 56],
 });
 //where its placed on the map
-let marker = L.marker([0.0], {icon:pin}).addTo(map);
+let marker = L.marker([0,0], {icon:pin}).addTo(map);
 
 //handling the user input and tying it with the API data
 async function lookup(query = "") {
@@ -50,6 +50,17 @@ function showResult(data) {
     document.getElementById("timezone").textContent = `UTC ${location.timezone}`;
     document.getElementById("isp").textContent = isp;
 
+    //pin movement
+    map.setView([location.lat, location.lng], 13);
+    marker.setLatLng([location.lat, location.lng]);
+
 }
 
 //eventlistenter
+form.addEventListener("submit", (event) => {
+    event.preventDefault(); // no need to reload, just show result
+    lookup(input.ariaValueMax.trim());
+});
+
+//loading
+lookup();
