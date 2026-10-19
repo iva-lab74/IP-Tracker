@@ -48,12 +48,41 @@ h1 {
 
 
 .info-card {
+    /* positioning */
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 50%); /* over laps the purple */
+    
+    /*how it looks */
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     
 
+    /* How it's arranged */
+    display: grid;
+    gap: 2rem;
+    text-align: left;
+    grid-template-columns: repeat(4, 1fr);
+
+    /* how big is it */
+    width: 80%;
+    max-width: 1440px;
 }
 
 .info-card h2 {
+    font-size: .5rem;
+    letter-spacing: .5rem;
+    color: hsl(0, 0%, 59%);
+    margin-bottom: 0.5rem;
+}
 
+.info-card p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: hsl(0, 0%, 17%);
 }
 
 #map {
