@@ -42,7 +42,14 @@ async function lookup(query = "") {
 //results
 
 function showResult(data) {
-    const { ip, location, isp} = data;
+    const { ip, location, isp} = data; //all we need from that data pile
 
-    
+    //now we tie it to our HTML
+    document.getElementById("ip").textContent = ip;
+    document.getElementById("location").textContent = `${location.region}`;
+    document.getElementById("timezone").textContent = `UTC ${location.timezone}`;
+    document.getElementById("isp").textContent = isp;
+
 }
+
+//eventlistenter
