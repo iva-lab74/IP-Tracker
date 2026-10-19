@@ -43,12 +43,12 @@ function showResult(data) {
 
     //now we tie it to our HTML
     document.getElementById("ip").textContent = ip;
-    document.getElementById("location").textContent = `${location.region}`;
+    document.getElementById("location").textContent = `${location.city}`;
     document.getElementById("timezone").textContent = `UTC ${location.timezone}`;
     document.getElementById("isp").textContent = isp;
 
     //pin movement
-    map.setView([location.lat, location.lng], 13);
+    map.setView([location.lat, location.lng], 9);
     marker.setLatLng([location.lat, location.lng]);
 
 }
@@ -60,4 +60,4 @@ form.addEventListener("submit", (event) => {
 });
 
 //loading
-lookup();
+lookup("8.8.8.8");
