@@ -1,19 +1,25 @@
-* { box-sizing: border-box; margin: 0; }
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
 /* ^ applys to everything, keeps things looking the same ^ */
 
 body {
-    font-family: "Rubik" , sans-serif;
+    font-family: "Rubik", sans-serif;
     font-size: 18px;
-    display: flex; 
+    display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
 header {
-    background: url("images/pattern-bg-desktop.png") center,  hsl(0, 0%, 59%);
+    background: url("images/pattern-bg-desktop.png") center/ cover no-repeat,  hsl(245, 40%, 50%);;
     padding: 1rem 1rem 0;
     text-align: center;
     height: 280px;
+    position: relative;
+    z-index: 1000;
 }
 
 h1 {
@@ -28,18 +34,21 @@ h1 {
     max-width: 500px;
     margin: 0 auto;
 }
-#search-input{
-    padding: 1rem 1rem;
+
+#search-input {
+    padding: 1rem 1.5rem;
     flex: 1;
     min-width: 0;
+    border: none;
     border-radius: 15px 0 0 15px;
     font: inherit;
 }
 
 #search-form button {
-    background:  hsl(0, 0%, 17%);
+    background: hsl(0, 0%, 17%);
     border: none;
-    padding: 0 1rem;
+    padding: 0 1.5rem;
+    border-radius: 0 10px 10px 0;
 }
 
 #search-form button:hover {
@@ -52,14 +61,15 @@ h1 {
     position: absolute;
     left: 50%;
     bottom: 0;
-    transform: translate(-50%, 50%); /* over laps the purple */
-    
+    transform: translate(-50%, 50%);
+    /* over laps the purple */
+
     /*how it looks */
     background: white;
     border-radius: 15px;
     padding: 2rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    
+
 
     /* How it's arranged */
     display: grid;
@@ -69,13 +79,13 @@ h1 {
 
     /* how big is it */
     width: 80%;
-    max-width: 1440px;
+    max-width: 1110px;
 }
 
 .info-card h2 {
-    font-size: .5rem;
-    letter-spacing: .5rem;
-    color: hsl(0, 0%, 59%);
+    font-size: .9rem;
+    letter-spacing: .15rem;
+    color: hsl(0, 0%, 17%);
     margin-bottom: 0.5rem;
 }
 
@@ -86,8 +96,20 @@ h1 {
 }
 
 #map {
-
+    flex: 1;
+    min-height: 400px;
 }
 
 /* Phone view */
 
+@media (max-width: 375px) {
+    header { background-image: url("images/pattern-bg-mobile.png"); height: 300px; }
+    .infocard {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+    info-card p { font-size: 1.5rem; }
+    
+}
