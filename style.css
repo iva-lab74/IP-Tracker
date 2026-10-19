@@ -93,7 +93,10 @@ h1 {
     font-size: 1.5rem;
     font-weight: 500;
     color: hsl(0, 0%, 17%);
+    overflow-wrap: anywhere;   /* break long words if needed */
 }
+
+
 
 #map {
     flex: 1;

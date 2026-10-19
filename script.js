@@ -14,7 +14,7 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 const pin = L.icon({
     iconUrl: "images/icon-location.svg",
     //needed for pin tip
-    iconanchor: [23, 56],
+    iconAnchor: [23, 56],
 });
 //where its placed on the map
 let marker = L.marker([0,0], {icon:pin}).addTo(map);
@@ -56,8 +56,9 @@ function showResult(data) {
 //eventlistenter
 form.addEventListener("submit", (event) => {
     event.preventDefault(); // no need to reload, just show result
-    lookup(input.ariaValueMax.trim());
+    lookup(input.value.trim());
 });
 
 //loading
+
 lookup("8.8.8.8");
